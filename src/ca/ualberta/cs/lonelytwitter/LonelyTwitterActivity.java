@@ -41,14 +41,15 @@ public class LonelyTwitterActivity extends Activity {
 				String text = bodyText.getText().toString();
 				saveInFile(text, new Date(System.currentTimeMillis()));
 				finish();
-
+				
 			}
 		});
 	}
 
 	@Override
 	protected void onStart() {
-		// TODO Auto-generated method stub
+				
+
 		super.onStart();
 		String[] tweets = loadFromFile();
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
