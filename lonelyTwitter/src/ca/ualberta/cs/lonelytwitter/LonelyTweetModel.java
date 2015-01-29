@@ -2,7 +2,7 @@ package ca.ualberta.cs.lonelytwitter;
 
 import java.util.Date;
 
-public abstract class LonelyTweetModel {
+public abstract class LonelyTweetModel implements Comparable<LonelyTweetModel> {
 	private String text;
 	protected Date timestamp;
 	
@@ -36,8 +36,11 @@ public abstract class LonelyTweetModel {
 		if (other == null || !(other instanceof LonelyTweetModel)) {
 			return false;
 		}
-		
 		LonelyTweetModel otherTweet = (LonelyTweetModel) other;
 		return timestamp.equals(otherTweet.timestamp) && text.equals(otherTweet.text);
 	}
+	
+    public int compareTo(LonelyTweetModel other){
+        return this.getTimestamp().compareTo(other.getTimestamp());
+    }	
 }
