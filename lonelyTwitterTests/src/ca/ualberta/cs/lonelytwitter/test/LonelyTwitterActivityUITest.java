@@ -34,6 +34,20 @@ public class LonelyTwitterActivityUITest extends
 		textInput = ((EditText) activity.findViewById(ca.ualberta.cs.lonelytwitter.R.id.body));
 	}
 	
+	public void testSetText(){
+		
+		instrumentation.runOnMainSync(new Runnable(){
+			@Override
+			public void run(){
+				String text = "tweet";
+				textInput.setText("tweet");
+			}
+		});
+		instrumentation.waitForIdleSync();
+		assertEquals("Correct text?","tweet",textInput.getText().toString());
+	}
+
+	
 	/*
 	 * fills in the input text field and clicks the 'save'
 	 * button for the activity under test
